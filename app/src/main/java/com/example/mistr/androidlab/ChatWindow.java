@@ -47,7 +47,6 @@ public class ChatWindow extends Activity {
         final ChatAdapter messageAdapter = new ChatAdapter(this);
         listView.setAdapter(messageAdapter);
 
-
         Button button = (Button) findViewById(R.id.sendButton);
         final EditText editText = (EditText) findViewById(R.id.editText);
 
