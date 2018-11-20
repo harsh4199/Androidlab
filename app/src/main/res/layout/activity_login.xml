@@ -7,34 +7,29 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
+
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        />
+        android:text="@string/login" />
 
     <EditText
-        android:id="@+id/textEdit1"
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_name"
-        android:inputType="textEmailAddress"
-        >
-    </EditText>
+        android:inputType="textEmailAddress" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/passwd" />
+        android:text="@string/password"/>
 
     <EditText
-        android:id="@+id/textEdit2"
+        android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        />
+        android:inputType="textPassword" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -43,13 +38,10 @@
         android:src="@drawable/flag" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login" /><![CDATA[
+        android:text="Login" />
 
-    android:src="@drawable/flag"/>
-
-]]>
 
 </LinearLayout>

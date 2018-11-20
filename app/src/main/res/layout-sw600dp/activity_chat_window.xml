@@ -4,42 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#d1d1d1"
-    tools:context="com.example.mistr.androidlab.ChatWindow">
+    tools:context="com.example.gullo.androidslab.ChatWindow">
 
 
     <ListView
         android:id="@+id/listMSG"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:layout_above="@+id/sendMSG"
-        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/sendMSG"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="8dp"
-        android:divider="#d1d1d1"
-        android:dividerHeight="6dp" />
+        />
 
     <EditText
         android:id="@+id/typeMSG"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:layout_alignTop="@+id/sendMSG"
-        android:layout_alignBottom="@+id/sendMSG"
-        android:layout_alignParentStart="true"
-        android:layout_marginRight="5dp"
-        android:layout_toLeftOf="@+id/sendMSG" />
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/sendMSG" />
 
     <Button
         android:id="@+id/sendMSG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-
+        android:layout_alignRight="@+id/listMSG"
         android:layout_marginBottom="11dp"
         android:layout_marginEnd="15dp"
         android:text="@string/send" />
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/listMSG"
+        />
 
 </RelativeLayout>

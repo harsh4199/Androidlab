@@ -10,64 +10,66 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.time.Instant;
 
 public class LoginActivity extends Activity {
 
-    String ACTIVITY_NAME="LoginActivity";
+
+
+    protected static final String ACTIVITY_NAME = "LoginActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Button loginButton = findViewById(R.id.loginButton);
+        final EditText editText = (EditText)findViewById(R.id.login) ;
+        final EditText editText1 = (EditText)findViewById(R.id.password) ;
+        final SharedPreferences sharedPreferences = getSharedPreferences("Login",MODE_PRIVATE);
+        editText.setText(sharedPreferences.getString("default email","email@domain.com"));
+        editText1.setText(sharedPreferences.getString("Login","email@domain.com"));
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("default email", editText.getText().toString());
+                editor.putString("Login", editText1.getText().toString());
+                editor.commit();
+                Intent intent = new Intent(LoginActivity.this,
+                        StartActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        EditText loginName = (EditText) findViewById(R.id.textEdit1);
-
-        SharedPreferences userloginName = getSharedPreferences("SaveData", Context.MODE_PRIVATE);
-
-        loginName.setText(userloginName.getString("LoginName","email@domain.com"));
-
-        Button loginbtn= findViewById(R.id.button2);
-
-        loginbtn.setOnClickListener(loginfunc);
-
+        Log.i(ACTIVITY_NAME,"In OnCreate()");
 
 
     }
-    private View.OnClickListener loginfunc = new View.OnClickListener() {
-        public void onClick(View v) {
-            Intent myIntent = new Intent(LoginActivity.this, StartActivity.class);
-            EditText loginName = (EditText) findViewById(R.id.textEdit1);
-            String name=loginName.getText().toString();
-            SharedPreferences userloginName = getSharedPreferences("SaveData", Context.MODE_PRIVATE);
-            userloginName.edit().putString("LoginName",name).commit();
-            myIntent.putExtra("Username",name);
-            LoginActivity.this.startActivity(myIntent);
 
 
-        }
-    };
+
+
     @Override
-    protected void onStart()
-    {
+    protected void onResume(){
+        super.onResume();
+        Log.i(ACTIVITY_NAME,"In OnResume()");
+    }
+    @Override
+    protected void onStart(){
         super.onStart();
-        Log.i(ACTIVITY_NAME,"In onStart()");
+        Log.i(ACTIVITY_NAME,"In OnStart()");
     }
     @Override
-    protected void onPause()
-    {
+    protected void onPause(){
         super.onPause();
-        Log.i(ACTIVITY_NAME,"In onPause()");
+        Log.i(ACTIVITY_NAME,"In OnPause()");
     }
     @Override
-    protected void onStop()
-    {
+    protected void onStop(){
         super.onStop();
-        Log.i(ACTIVITY_NAME,"In onStop()");
+        Log.i(ACTIVITY_NAME,"In OnStop()");
     }
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy(){
         super.onDestroy();
-        Log.i(ACTIVITY_NAME,"In onDestory()");
+        Log.i(ACTIVITY_NAME,"In OnDestroy()");
     }
 }
